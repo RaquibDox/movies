@@ -7,7 +7,7 @@ import { addMovies } from '../../features/movies/movieSlice';
 
 const Home = () => {
 
-    const movieText = "john";
+    const movieText = "one piece";
     const dispatch = useDispatch();
     
     useEffect(() =>{
