@@ -1,5 +1,5 @@
 import React from 'react';
-import { getAllMovies } from '../../features/movies/movieSlice';
+import { getAllMovies, getAllShows } from '../../features/movies/movieSlice';
 import { useSelector } from 'react-redux';
 import MovieCard from '../MovieCard/MovieCard';
 import "./MovieListing.scss";
@@ -7,12 +7,16 @@ import "./MovieListing.scss";
 const MovieListing = () => {
     // const movies = useSelector((state) => state.movies.movies);
     const movies = useSelector(getAllMovies);
+    const shows = useSelector(getAllShows);
     // console.log(movies);
 
-    let renderMovies = "";
+    let renderMovies, renderShows = "";
 
    renderMovies = movies.Response === "True" ?(
-        movies.Search.map((movie, index) =>{
+        movies.Search
+        .slice()
+        .sort((a, b) => b.Year.localeCompare(a.Year))
+        .map((movie, index) =>{
             return <MovieCard key={index} data={movie} />
         })
    ):(
@@ -20,6 +24,18 @@ const MovieListing = () => {
             <h2>{movies.error}</h2>
         </div>
    );
+
+   renderShows = shows.Response === "True" ?(
+        shows.Search
+        .slice()
+        .sort((a, b) => b.Year.localeCompare(a.Year)).map((show, index) =>{
+            return <MovieCard key={index} data={show} />
+        })
+    ):(
+        <div className="shows-error">
+            <h2>{shows.error}</h2>
+        </div>
+    );
 
 //    console.log(renderMovies);
 
@@ -30,6 +46,12 @@ const MovieListing = () => {
                 <h2>Movies</h2>
                 <div className="movie-container">
                     {renderMovies}
+                </div>
+            </div>
+            <div className="show-list">
+                <h2>Shows</h2>
+                <div className="movie-container">
+                    {renderShows}
                 </div>
             </div>
         </div>

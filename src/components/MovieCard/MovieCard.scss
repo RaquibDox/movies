@@ -5,6 +5,13 @@
     cursor: pointer;
     border-radius: 15px;
     overflow: hidden;
+    transition: all 0.3s;
+
+    &:hover {
+        transform: scale(1.1);
+        transition: all 0.3s;
+        z-index: 1000;
+    }
 }
 
 .card-inner{

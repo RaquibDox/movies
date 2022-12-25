@@ -1,10 +1,11 @@
 @import "../../common/color.scss";
 
 .movie-wrapper {
-    margin-inline: 2rem;
+    margin: 2rem;
 }
 
-.movie-list{
+.movie-list,
+.show-list{
     margin: 20px 0;
     h2{
         color: $font-secondary-color;
@@ -16,5 +17,5 @@
 .movie-container{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 15px;
+    gap: 30px 17px;
 }

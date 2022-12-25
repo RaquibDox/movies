@@ -3,7 +3,7 @@ import movieApi from "../../common/apis/MovieApi";
 import { APIkey } from "../../common/apis/MovieApiKey";
 
 export const fetchAsyncMovies = createAsyncThunk('movies/fetchAsyncMovies', async() => {
-    const movieText = "pirates";
+    const movieText = "jobs";
     const response = await movieApi
         .get(`?apiKey=${APIkey}&s=${movieText}&type=movie`);
     // console.log( "the response from api", response.data);
@@ -11,10 +11,10 @@ export const fetchAsyncMovies = createAsyncThunk('movies/fetchAsyncMovies', asyn
 });
 
 export const fetchAsyncShows = createAsyncThunk('movies/fetchAsyncShows', async() => {
-    const seriesText = "wednesday";
+    const seriesText = "dark";
     const response = await movieApi
         .get(`?apiKey=${APIkey}&s=${seriesText}&type=series`);
-    // console.log( "the response from api", response.data);
+    console.log( "the response from api", response.data);
     return response.data;
 });
 
@@ -51,4 +51,5 @@ const movieSlice = createSlice({
 
 export const { addMovies } = movieSlice.actions;
 export const getAllMovies = (state) => state.movies.movies;
+export const getAllShows = (state) => state.movies.shows;
 export default movieSlice.reducer;
