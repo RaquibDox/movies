@@ -21,13 +21,13 @@ const MovieListing = () => {
         </div>
    );
 
-   console.log(renderMovies);
+//    console.log(renderMovies);
 
 
     return (
         <div className='movie-wrapper'>
             <div className="movie-list">
-                <h2>Movies1</h2>
+                <h2>Movies</h2>
                 <div className="movie-container">
                     {renderMovies}
                 </div>
@@ -37,3 +37,4 @@ const MovieListing = () => {
 };
 
 export default MovieListing;
+
