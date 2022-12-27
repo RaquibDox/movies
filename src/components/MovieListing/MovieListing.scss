@@ -14,8 +14,8 @@
     }
 }
 
-.movie-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 30px 17px;
+.slick-list{
+    height: 540px;
+    // background-color: #ffffff19;
+    padding-top: 20px;
 }

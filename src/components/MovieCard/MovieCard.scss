@@ -6,6 +6,10 @@
     border-radius: 15px;
     overflow: hidden;
     transition: all 0.3s;
+    min-height: 450px;
+    width: 225px;
+    height: 100%;
+    margin: 10px;
 
     &:hover {
         transform: scale(1.1);

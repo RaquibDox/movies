@@ -3,7 +3,7 @@ import movieApi from "../../common/apis/MovieApi";
 import { APIkey } from "../../common/apis/MovieApiKey";
 
 export const fetchAsyncMovies = createAsyncThunk('movies/fetchAsyncMovies', async() => {
-    const movieText = "john";
+    const movieText = "jobs";
     const response = await movieApi
         .get(`?apiKey=${APIkey}&s=${movieText}&type=movie`);
     // console.log( "the response from api", response.data);
