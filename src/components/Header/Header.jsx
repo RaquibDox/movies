@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { removeHomeRender } from '../../features/movies/movieSlice';
 import { fetchAsyncMovies, fetchAsyncShows } from '../../features/movies/movieSlice';
 import { Link } from 'react-router-dom';
 import user from '../../images/user.png';
@@ -12,11 +13,18 @@ const Header = () => {
         e.preventDefault();
         dispatch(fetchAsyncMovies(term));
         dispatch(fetchAsyncShows(term));
+        // setTerm("");
         // console.log(term);
+    }
+    function handelClick(){
+        setTerm("");
+        dispatch(removeHomeRender());
+        dispatch(fetchAsyncMovies());
+        dispatch(fetchAsyncShows());
     }
     return (
         <div className="header">           
-                <div className="logo"><Link to="/">Movie App</Link></div>  
+                <div className="logo"><Link onClick={handelClick} to="/">Movie App</Link></div>  
                 <div className="search-bar">
                     <form onSubmit={submitHandler}>
                         <input type="text" value={term} placeholder="Search Movies or Shows" onChange={(e) => setTerm(e.target.value)}/>

@@ -6,6 +6,7 @@ export const fetchAsyncMovies = createAsyncThunk('movies/fetchAsyncMovies', asyn
     const response = await movieApi
         .get(`?apiKey=${APIkey}&s=${movieText}&type=movie`);
     // console.log( "the response from api", response.data);
+    // totalLength.moviesLength = Object.keys(response.data.Search).length;
     return response.data;
 });
 
@@ -13,6 +14,7 @@ export const fetchAsyncShows = createAsyncThunk('movies/fetchAsyncShows', async(
     const response = await movieApi
         .get(`?apiKey=${APIkey}&s=${seriesText}&type=series`);
     // console.log( "the response from api", response.data);
+    // totalLength.showsLength = Object.keys(response.data.Search).length;
     return response.data;
 });
 
@@ -20,14 +22,17 @@ export const fetchAsyncDetails = createAsyncThunk('movies/fetchAsyncDetails', as
     // console.log("id :", id);
     const response = await movieApi
         .get(`?apiKey=${APIkey}&i=${id}&Plot=full`);
-    console.log( "the response from api", response.data);
+    // console.log( "the response from api", response.data);
     return response.data;
 });
 
 const initialState = {
     movies:{},
     shows:{},
-    selectMovieOrShow:{}
+    selectMovieOrShow:{},
+    homeRendered: {
+        count: 0
+    }
 }
 
 const movieSlice = createSlice({
@@ -36,6 +41,12 @@ const movieSlice = createSlice({
     reducers:{
         removeDetails: (state) => {
             state.selectMovieOrShow = {};
+        },
+        addHomeRender: (state) =>{
+            state.homeRendered.count += 1;
+        },
+        removeHomeRender: (state) =>{
+            state.homeRendered.count = 0;
         }
     },
     extraReducers: {
@@ -66,7 +77,8 @@ const movieSlice = createSlice({
     }
 });
 
-export const { removeDetails } = movieSlice.actions;
+export const { removeDetails, addHomeRender, removeHomeRender } = movieSlice.actions;
+export const getHomeRenderCount = (state) => state.movies.homeRendered.count;
 export const getAllMovies = (state) => state.movies.movies;
 export const getAllShows = (state) => state.movies.shows;
 export const getAllDetails = (state) => state.movies.selectMovieOrShow;

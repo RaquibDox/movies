@@ -1,4 +1,3 @@
-
 export const settings = {
     dots: false,
     infinite: true,
