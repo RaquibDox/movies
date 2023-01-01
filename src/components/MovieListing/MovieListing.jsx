@@ -46,19 +46,27 @@ const MovieListing = () => {
         <div className='movie-wrapper'>
             <div className="movie-list">
                 <h2>Movies :</h2>
+                {renderMovies.length > 0 ?
                 <div className="movie-container">
                     <Slider {...settings}>
                         {renderMovies}
                     </Slider>
                 </div>
+                :
+                <div className='notAvailable'>Sorry, no such movies available.</div>
+                }
             </div>
             <div className="show-list">
                 <h2>Shows :</h2>
-                <div className="shows-container">
-                    <Slider {...settings}>
-                        {renderShows}
-                    </Slider>
-                </div>
+                {renderShows.length > 0 ?
+                    <div className="shows-container">
+                        <Slider {...settings}>
+                            {renderShows}
+                        </Slider>
+                    </div>
+                :
+                <div className='notAvailable'>Sorry, no such shows available.</div>
+                }
             </div>
         </div>
     );
