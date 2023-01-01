@@ -2,11 +2,14 @@ import React, { useEffect } from 'react';
 import MovieListing from '../MovieListing/MovieListing';
 import { useDispatch, useSelector } from 'react-redux';
 import { addHomeRender} from '../../features/movies/movieSlice';
-import { getHomeRenderCount} from '../../features/movies/movieSlice';
+import { getHomeRenderCount, getStatus} from '../../features/movies/movieSlice';
 import { fetchAsyncMovies, fetchAsyncShows } from '../../features/movies/movieSlice';
+import './Home.scss';
 
 const Home = () => {
     const homeRenderCount = useSelector(getHomeRenderCount);
+    const loadingStatus = useSelector(getStatus);
+    console.log(loadingStatus);
     // console.log(homeRenderCount);
     const dispatch = useDispatch();
     
@@ -29,7 +32,9 @@ const Home = () => {
     return (
         <div>
             <div className="banner-img"></div>
-            <MovieListing />
+            {(loadingStatus === 'fulfilled') 
+            ? <MovieListing /> :
+            <div className='loading'> ...Loading </div> }
         </div>
     );
 };

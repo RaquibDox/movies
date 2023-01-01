@@ -32,7 +32,8 @@ const initialState = {
     selectMovieOrShow:{},
     homeRendered: {
         count: 0
-    }
+    },
+    status: "idle"
 }
 
 const movieSlice = createSlice({
@@ -50,15 +51,17 @@ const movieSlice = createSlice({
         }
     },
     extraReducers: {
-        [fetchAsyncMovies.pending]: () =>{
+        [fetchAsyncMovies.pending]: (state) =>{
             console.log("pending movies");
+            return {...state, status: 'loading'};
         },
         [fetchAsyncMovies.fulfilled]: (state, {payload}) =>{
             console.log("Movies Fetched Successfully");
-            return {...state, movies: payload}
+            return {...state, movies: payload, status: 'fulfilled'};
         },
-        [fetchAsyncMovies.rejected]: () =>{
+        [fetchAsyncMovies.rejected]: (state) =>{
             console.log("rejected movies");
+            return {...state, status: 'rejected'};
         },
         [fetchAsyncShows.pending]: () =>{
             console.log("pending shows");
@@ -81,5 +84,6 @@ export const { removeDetails, addHomeRender, removeHomeRender } = movieSlice.act
 export const getHomeRenderCount = (state) => state.movies.homeRendered.count;
 export const getAllMovies = (state) => state.movies.movies;
 export const getAllShows = (state) => state.movies.shows;
+export const getStatus = (state) => state.movies.status;
 export const getAllDetails = (state) => state.movies.selectMovieOrShow;
 export default movieSlice.reducer;
