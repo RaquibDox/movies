@@ -31,7 +31,9 @@ const Home = () => {
 
     return (
         <div>
-            <div className="banner-img"></div>
+            <div className="banner-img">
+                <img src="https://c4.wallpaperflare.com/wallpaper/364/854/488/digital-art-photoshop-concept-art-futuristic-wallpaper-thumb.jpg" alt="" />
+            </div>
             {(loadingStatus === 'fulfilled') 
             ? <MovieListing /> :
             <div className='loading'> ...Loading </div> }

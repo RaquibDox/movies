@@ -1,7 +1,11 @@
 @import "../../common/color.scss";
 
 .header {
-    background-color: $secondary-color;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0; 
+    z-index: 2000;
+    background-color: lighten($secondary-color, 10%);
     height: 72px;
     padding: 0 40px;
     display: flex;
