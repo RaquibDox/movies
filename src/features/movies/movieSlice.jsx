@@ -4,7 +4,7 @@ import { APIkey } from "../../common/apis/MovieApiKey";
 
 export const fetchAsyncMovies = createAsyncThunk('movies/fetchAsyncMovies', async(movieText = "jobs") => {
     const response = await movieApi
-        .get(`?apiKey=${APIkey}&s=${movieText}&type=movie`);
+        .get(`?apiKey=${APIkey}&s=${movieText.trim()}&type=movie`);
     // console.log( "the response from api", response.data);
     // totalLength.moviesLength = Object.keys(response.data.Search).length;
     return response.data;
@@ -12,7 +12,7 @@ export const fetchAsyncMovies = createAsyncThunk('movies/fetchAsyncMovies', asyn
 
 export const fetchAsyncShows = createAsyncThunk('movies/fetchAsyncShows', async(seriesText = "dark") => {
     const response = await movieApi
-        .get(`?apiKey=${APIkey}&s=${seriesText}&type=series`);
+        .get(`?apiKey=${APIkey}&s=${seriesText.trim()}&type=series`);
     // console.log( "the response from api", response.data);
     // totalLength.showsLength = Object.keys(response.data.Search).length;
     return response.data;

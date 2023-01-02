@@ -4,7 +4,8 @@ import { getAllMovies, getAllShows } from '../../features/movies/movieSlice';
 import { useSelector } from 'react-redux';
 import MovieCard from '../MovieCard/MovieCard';
 import "./MovieListing.scss";
-import { settings } from '../../common/settings';
+// import { settings } from '../../common/settings';
+import {responsiveSettings} from '../../common/settings';
 
 const MovieListing = () => {
     // const movies = useSelector((state) => state.movies.movies);
@@ -48,7 +49,7 @@ const MovieListing = () => {
                 <h2>Movies :</h2>
                 {renderMovies.length > 0 ?
                 <div className="movie-container">
-                    <Slider {...settings}>
+                    <Slider {...responsiveSettings(renderMovies.length)}>
                         {renderMovies}
                     </Slider>
                 </div>
@@ -60,7 +61,7 @@ const MovieListing = () => {
                 <h2>Shows :</h2>
                 {renderShows.length > 0 ?
                     <div className="shows-container">
-                        <Slider {...settings}>
+                        <Slider {...responsiveSettings(renderShows.length)}>
                             {renderShows}
                         </Slider>
                     </div>
