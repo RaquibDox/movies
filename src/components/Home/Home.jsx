@@ -36,7 +36,7 @@ const Home = () => {
             </div>
             {(loadingStatus === 'fulfilled') 
             ? <MovieListing /> :
-            <div className='loading'> ...Loading </div> }
+            <div className='loading'> Loading ... </div> }
         </div>
     );
 };

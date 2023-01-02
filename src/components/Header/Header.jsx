@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { removeHomeRender } from '../../features/movies/movieSlice';
 import { fetchAsyncMovies, fetchAsyncShows } from '../../features/movies/movieSlice';
@@ -7,13 +8,17 @@ import user from '../../images/user.png';
 import "./Header.scss"
 
 const Header = () => {
+    const navigate = useNavigate();
     const [term, setTerm] = useState("");
+    const canSearch = Boolean(term);
+
     const dispatch = useDispatch();
     const submitHandler = (e) => {
         e.preventDefault();
+        navigate("/");
+        setTerm("");
         dispatch(fetchAsyncMovies(term));
         dispatch(fetchAsyncShows(term));
-        // setTerm("");
         // console.log(term);
     }
     function handelClick(){
@@ -28,7 +33,7 @@ const Header = () => {
                 <div className="search-bar">
                     <form onSubmit={submitHandler}>
                         <input type="text" value={term} placeholder="Search Movies or Shows" onChange={(e) => setTerm(e.target.value)}/>
-                        <button type='submit'><i className='fa fa-search'/></button>
+                        <button type='submit' disabled={!canSearch}><i className='fa fa-search'/></button>
                     </form>
                 </div>          
             <div className="user-image">
