@@ -27,3 +27,16 @@
     align-items: center;
     justify-content: center;
 }
+
+@media(max-width: 560px){
+    .show-list,
+    .movie-list{
+        display: grid;
+        place-items: center;
+    }
+
+    .shows-container,
+    .movie-container{
+        width: 250px;
+    }
+}

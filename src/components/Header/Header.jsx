@@ -29,7 +29,7 @@ const Header = () => {
     }
     return (
         <div className="header">           
-                <div className="logo"><Link onClick={handelClick} to="/">Movie App</Link></div>  
+                <div className="logo"><Link onClick={handelClick} to="/">Home</Link></div>  
                 <div className="search-bar">
                     <form onSubmit={submitHandler}>
                         <input type="text" value={term} placeholder="Search Movies or Shows" onChange={(e) => setTerm(e.target.value)}/>

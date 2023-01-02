@@ -43,12 +43,21 @@
 }
 
 .movie-info > div span:first-child {
-    padding: 10px 0px;
+    // padding: 10px 0px;
     color: $font-primary-color;
     font-weight: 600;
-    width: 100px;
+    min-width: 100px;
     display: inline-block;
 }
+
+.movie-info > div{
+    margin: 10px 0;
+    display: flex;
+}
+
+// .movie-info > div span:nth-child(2) {
+    
+// }
 
 .movie-info > div span {
     color: $font-secondary-color;
@@ -69,4 +78,53 @@
 
 .section-right{
     margin: 0 30px 0 15px;
+}
+
+@media(max-width: 1050px){
+    .movie-section {
+        flex-direction: column-reverse;
+    }
+
+    .movie-title{
+        font-size: 3.5rem;
+        padding: 20px 0;
+    }
+
+    .movie-rating{
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .section-right{
+        padding: 0;
+        margin: 0;
+    }
+
+    .movie-info{
+        margin-top: 2rem;
+    }
+
+    .movie-plot{
+        margin: 3rem 0;
+    }
+
+    // .section-left{
+    //     margin-inline: 30px;
+    // }
+
+    .loading {
+        font-size: 3rem;
+    }
+}
+
+@media(max-width: 400px){
+    .section-right{
+        img{
+            width: 80vw;
+        }
+    }
+
+    .movie-info > div{
+        margin: 20px 0;
+    }
 }
