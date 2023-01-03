@@ -8,4 +8,10 @@
     align-items: center;
     color: $font-primary-color;
     flex-direction: column;
+
+    //if you want to keep a fixed bottom footer : 
+    // position:fixed;
+    // left:0px;
+    // bottom:0px;
+    // width:100%;
 }

@@ -5,12 +5,11 @@ import { fetchAsyncDetails, getAllDetails, removeDetails } from '../../features/
 import './MovieDetail.scss'
 
 const MovieDetail = () => {
-    const { imdbID } = useParams();
-    const id = imdbID.slice(1);
-    // console.log("imdbId: " , id);
     const dispatch = useDispatch();
     const data = useSelector(getAllDetails);
-    // console.log(data);
+
+    const { imdbID } = useParams();
+    const id = imdbID.slice(1);
 
     useEffect(()=>{
         dispatch(fetchAsyncDetails(id));
@@ -18,6 +17,7 @@ const MovieDetail = () => {
             dispatch(removeDetails());
         }
     },[dispatch, id])
+
     return (
         <div className="movie-section">
             {Object.keys(data).length === 0 ?

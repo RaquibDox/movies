@@ -8,10 +8,8 @@ import "./MovieListing.scss";
 import {responsiveSettings} from '../../common/settings';
 
 const MovieListing = () => {
-    // const movies = useSelector((state) => state.movies.movies);
     const movies = useSelector(getAllMovies);
     const shows = useSelector(getAllShows);
-    // console.log(movies);
 
     let renderMovies, renderShows = "";
 
@@ -39,9 +37,6 @@ const MovieListing = () => {
             <h2>{shows.error}</h2>
         </div>
     );
-
-//    console.log(renderMovies);
-
 
     return (
         <div className='movie-wrapper'>

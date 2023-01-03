@@ -15,9 +15,12 @@
 
 .logo{
     color: $font-primary-color;
-    font-size: 20px;
     font-weight: 600;
     font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+
+    .fa-house-chimney{
+        font-size: 30px;
+    }
 }
 
 .user-image,

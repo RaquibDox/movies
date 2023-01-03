@@ -9,10 +9,11 @@ import "./Header.scss"
 
 const Header = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
     const [term, setTerm] = useState("");
     const canSearch = Boolean(term);
 
-    const dispatch = useDispatch();
     const submitHandler = (e) => {
         e.preventDefault();
         navigate("/");
@@ -21,15 +22,17 @@ const Header = () => {
         dispatch(fetchAsyncShows(term));
         // console.log(term);
     }
+
     function handelClick(){
         setTerm("");
         dispatch(removeHomeRender());
         dispatch(fetchAsyncMovies());
         dispatch(fetchAsyncShows());
     }
+    
     return (
         <div className="header">           
-                <div className="logo"><Link onClick={handelClick} to="/">Home</Link></div>  
+                <div className="logo"><Link onClick={handelClick} to="/"><i class="fa-solid fa-house-chimney"></i></Link></div>  
                 <div className="search-bar">
                     <form onSubmit={submitHandler}>
                         <input type="text" value={term} placeholder="Search Movies or Shows" onChange={(e) => setTerm(e.target.value)}/>

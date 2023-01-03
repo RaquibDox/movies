@@ -7,28 +7,25 @@ import { fetchAsyncMovies, fetchAsyncShows } from '../../features/movies/movieSl
 import './Home.scss';
 
 const Home = () => {
-    const homeRenderCount = useSelector(getHomeRenderCount);
-    const loadingStatus = useSelector(getStatus);
-    console.log(loadingStatus);
-    // console.log(homeRenderCount);
     const dispatch = useDispatch();
     
-    // dispatch(addHomeRender());
-
+    const homeRenderCount = useSelector(getHomeRenderCount);
+    const loadingStatus = useSelector(getStatus);
+    // console.log(loadingStatus);
+    // console.log(homeRenderCount);
     
-        useEffect(() =>{
-            if(homeRenderCount<1){
-                dispatch(fetchAsyncMovies());
-                dispatch(fetchAsyncShows());
-                // console.log("use Effect triggered dispatch : ", homeRenderCount);
-            }
+    useEffect(() =>{
+        if(homeRenderCount < 1){
+            dispatch(fetchAsyncMovies());
+            dispatch(fetchAsyncShows());
+            // console.log("use Effect triggered dispatch : ", homeRenderCount);
+        }
 
-            return ()=>{
-                dispatch(addHomeRender());
-            }
-        },[dispatch]);
+        return ()=>{
+            dispatch(addHomeRender());
+        }
+    },[dispatch]);    
   
-
     return (
         <div>
             <div className="banner-img">
