@@ -41,7 +41,7 @@ const MovieListing = () => {
     return (
         <div className='movie-wrapper'>
             <div className="movie-list">
-                <h2>Movies :</h2>
+                <h2>Movies</h2>
                 {renderMovies.length > 0 ?
                 <div className="movie-container">
                     <Slider {...responsiveSettings(renderMovies.length)}>
@@ -49,11 +49,11 @@ const MovieListing = () => {
                     </Slider>
                 </div>
                 :
-                <div className='notAvailable'>Sorry, no such movies available.</div>
+                <div className='notAvailable'>Sorry, no such movie available.</div>
                 }
             </div>
             <div className="show-list">
-                <h2>Shows :</h2>
+                <h2>Shows</h2>
                 {renderShows.length > 0 ?
                     <div className="shows-container">
                         <Slider {...responsiveSettings(renderShows.length)}>
@@ -61,7 +61,7 @@ const MovieListing = () => {
                         </Slider>
                     </div>
                 :
-                <div className='notAvailable'>Sorry, no such shows available.</div>
+                <div className='notAvailable'>Sorry, no such show available.</div>
                 }
             </div>
         </div>
