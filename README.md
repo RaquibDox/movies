@@ -58,7 +58,12 @@ Open link : [https://moviesdox.netlify.app/](https://moviesdox.netlify.app/)
 
 Search in the serch box for any movies or series.
 
+![Screenshot from 2023-01-14 11-26-58](https://user-images.githubusercontent.com/90154115/236696793-0d8fc866-d5ce-403c-a410-af3ec8880f9e.png)
+
 Click on the poster, and all the information will be displayed.
+
+![Screenshot from 2023-01-14 11-27-26](https://user-images.githubusercontent.com/90154115/236696808-7d582fc1-0f90-40aa-881f-f960cf4edba6.png)
+
 
 ## Contributing
 
