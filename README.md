@@ -67,15 +67,7 @@ Click on the poster, and all the information will be displayed.
 
 ## Contributing
 
-Steps to contribute:
-
-- Fork the repository
-
-- Clone the repository
-
-- Make changes and commit them
-
-- Create a pull request
+Any user who would like to contribute can fork the repo and submit a issue first explaining what you want to change. After approval, you can submit a pull request.
 
 ## Live Demo
 
